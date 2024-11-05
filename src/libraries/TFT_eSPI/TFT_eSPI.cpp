@@ -1140,7 +1140,7 @@ void TFT_eSPI::deInitDMA(void)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
-#endif // End of DMA FUNCTIONS    
+#endif // End of DMA FUNCTIONS
 ////////////////////////////////////////////////////////////////////////////////////////
 
 #endif
@@ -1262,8 +1262,8 @@ TFT_eSPI::TFT_eSPI(int16_t w, int16_t h)
 {
 
     // lewis add. Mark : Used to set different models
-    memset(&drv, 0, sizeof(drv));
-
+    // memset(&drv, 0, sizeof(drv));
+    drv = setup_t{};
 // The control pins are deliberately set to the inactive state (CS high) as setup()
 // might call and initialise other SPI peripherals which would could cause conflicts
 // if CS is floating or undefined.

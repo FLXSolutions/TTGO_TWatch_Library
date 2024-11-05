@@ -106,9 +106,11 @@ public:
     virtual void onec(int duration = 200)
     {
         ledcWriteTone(_channel, _freq);
-        _tick->once_ms<uint8_t>(duration, [](uint8_t channel) {
-            ledcWriteTone(channel, 0);
-        }, _channel);
+        _tick->once_ms<const uint8_t*>(
+            duration,
+            [](const uint8_t* channel) {
+                ledcWriteTone(*channel, 0); },
+            &_channel);
     };
 
 protected:

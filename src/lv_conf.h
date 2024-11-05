@@ -80,7 +80,7 @@ typedef int16_t lv_coord_t;
 #define LV_MEM_CUSTOM      1
 #if LV_MEM_CUSTOM == 0
 /* Size of the memory used by `lv_mem_alloc` in bytes (>= 2kB)*/
-#  define LV_MEM_SIZE    (32U * 1024U)
+#  define LV_MEM_SIZE    (32U * 10000U)
 
 /* Complier prefix for a big array declaration */
 #  define LV_MEM_ATTR
@@ -395,15 +395,15 @@ typedef void *lv_indev_drv_user_data_t;             /*Type of user data in the i
 #define LV_FONT_MONTSERRAT_10    0
 #define LV_FONT_MONTSERRAT_12    0
 #define LV_FONT_MONTSERRAT_14    1
-#define LV_FONT_MONTSERRAT_16    1
-#define LV_FONT_MONTSERRAT_18    0
+#define LV_FONT_MONTSERRAT_16    0
+#define LV_FONT_MONTSERRAT_18    1
 #define LV_FONT_MONTSERRAT_20    0
-#define LV_FONT_MONTSERRAT_22    1
+#define LV_FONT_MONTSERRAT_22    0
 #define LV_FONT_MONTSERRAT_24    0
 #define LV_FONT_MONTSERRAT_26    0
-#define LV_FONT_MONTSERRAT_28    1
+#define LV_FONT_MONTSERRAT_28    0
 #define LV_FONT_MONTSERRAT_30    0
-#define LV_FONT_MONTSERRAT_32    1
+#define LV_FONT_MONTSERRAT_32    0
 #define LV_FONT_MONTSERRAT_34    0
 #define LV_FONT_MONTSERRAT_36    0
 #define LV_FONT_MONTSERRAT_38    0
