@@ -97,6 +97,7 @@ typedef int16_t lv_coord_t;
 
 #if defined(BOARD_HAS_PSRAM)
 /* Until Espressif corrects their own hearder */
+#define LV_MEM_SIZE (1024U * 1024U)
 #  include <stddef.h>
 #  include <stdbool.h>
 
