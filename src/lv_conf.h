@@ -101,9 +101,10 @@ typedef int16_t lv_coord_t;
 #  include <stddef.h>
 #  include <stdbool.h>
 
+void* my_malloc(size_t size);
 /* declare ps_malloc()'s prototype */
 #  include <esp32-hal-psram.h>
-#  define LV_MEM_CUSTOM_ALLOC   ps_malloc       /*Wrapper to malloc*/
+#  define LV_MEM_CUSTOM_ALLOC   my_malloc       /*Wrapper to malloc*/
 #else
 #  define LV_MEM_CUSTOM_ALLOC   malloc       /*Wrapper to malloc*/
 #endif
