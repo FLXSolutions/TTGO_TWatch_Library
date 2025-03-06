@@ -83,6 +83,7 @@ typedef int16_t lv_coord_t;
 #  define LV_MEM_SIZE    (32U * 1000U)
 
 /* Complier prefix for a big array declaration */
+#include "esp_attr.h"
 #  define LV_MEM_ATTR DRAM_ATTR
 
 /* Set an address for the memory pool instead of allocating it as an array.
