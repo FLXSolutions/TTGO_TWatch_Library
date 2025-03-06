@@ -78,7 +78,7 @@ typedef int16_t lv_coord_t;
 
 /* 1: use custom malloc/free, 0: use the built-in `lv_mem_alloc` and `lv_mem_free` */
 #define LV_MEM_CUSTOM      0
-#if LV_MEM_CUSTOM == 0
+#if LV_MEM_CUSTOM == 1
 /* Size of the memory used by `lv_mem_alloc` in bytes (>= 2kB)*/
 #  define LV_MEM_SIZE    (16U * 1000U)
 
@@ -96,7 +96,7 @@ typedef int16_t lv_coord_t;
 
 #define LV_MEM_CUSTOM_INCLUDE <stdlib.h>   /*Header for the dynamic memory function*/
 
-#if 0 && defined(BOARD_HAS_PSRAM)
+#if  defined(BOARD_HAS_PSRAM)
 /* Until Espressif corrects their own hearder */
 #  include <stddef.h>
 #  include <stdbool.h>
