@@ -136,13 +136,13 @@ typedef FocalTech_Class CapacitiveTouch ;
 // #define ENABLE_LVGL_FLUSH_DMA       //Use DMA for transmission by default
 #endif
 
-
+#define TWATCH_LVGL_DOUBLE_BUFFER 1
 
 #ifndef LVGL_BUFFER_SIZE
 #if defined(LILYGO_BLOCK_ST7796S_MODULE)  || defined(LILYGO_BLOCK_ILI9488_MODULE) || defined(LILYGO_BLOCK_ILI9481_MODULE)
 #define LVGL_BUFFER_SIZE        (320*100)
 #else
-#define LVGL_BUFFER_SIZE        (240*100)
+#define LVGL_BUFFER_SIZE        (240*240)
 #endif
 #endif  /*LVGL_BUFFER_SIZE*/
 
@@ -617,7 +617,7 @@ public:
 #define MOTOR_PIN                   4       //SIM868 MOTOR PIN,JUST ONLY SIM868
 #define SIM868_MODEM_RI             26
 #define SIM868_MODEM_DTR            25
-#define SIM868_MODEM_BAUD           115200  //SIM868 BAUD 
+#define SIM868_MODEM_BAUD           115200  //SIM868 BAUD
 #define SIM868_MODEM_TX             33      //SIM868 TX PIN
 #define SIM868_MODEM_RX             34      //SIM868 RX PIN
     void enableModemGPSPower(bool en = true)
@@ -627,7 +627,7 @@ public:
 #endif
 
 #ifdef LILYGO_WATCH_HAS_SIM800L
-#define SIM800_MODEM_BAUD           115200  //SIM800L BAUD 
+#define SIM800_MODEM_BAUD           115200  //SIM800L BAUD
 #define SIM800_MODEM_TX             33      //SIM800L TX PIN
 #define SIM800_MODEM_RX             34      //SIM800L RX PIN
 #define SIM800_MODEM_RST            14      //SIM800L RESET PIN,JUST ONLY SIM800L
@@ -750,7 +750,9 @@ private:
 #endif
 #endif
 
+    lv_disp_buf_t* display_buffer_{nullptr};
 public:
+    lv_disp_buf_t &display_buffer() { return *display_buffer_; }
     bool lvgl_begin()
     {
         if (tft == nullptr) {
@@ -760,6 +762,7 @@ public:
         lv_indev_drv_t indev_drv;
         lv_disp_drv_init(&disp_drv);
         static lv_disp_buf_t disp_buf;
+        display_buffer_ = &disp_buf;
 
 #ifdef  TWATCH_USE_PSRAM_ALLOC_LVGL
         if (psramFound()) {
@@ -1620,7 +1623,3 @@ protected:
 
 
 };
-
-
-
-
